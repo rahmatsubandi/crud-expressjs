@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title><%= title %></title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <div class="container mt-5 mb-3">
+      <h2 class="text-center col-auto">
+        CRUD DATA MAHASISWA DENGAN EXPRESS-JS
+      </h2>
+
+      <div class="row mt-5">
+        <!-- Form -->
+        <div class="col-12 col-sm-12 col-lg-5">
+          <%- include('./layout/form.ejs') %>
+        </div>
+
+        <!-- Table -->
+        <div class="col-12 col-lg-7 mt-2">
+          <%- include('./layout/table.ejs') %>
+        </div>
+      </div>
+    </div>
+    <%- include('./js.ejs') %>
+  </body>
+</html>
