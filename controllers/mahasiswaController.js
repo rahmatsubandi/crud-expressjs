@@ -5,18 +5,18 @@ const Mahasiswa = require("../models/Mahasiswa");
 module.exports = {
   viewMahasiswa: async (req, res) => {
     try {
-      // Membuat variabel category, dan await mengambil dari model Category
-      // dan menggunakan method find untuk mnegambil semua collection category di db Mongo nya
+      // Membuat variabel mahasiswa, dan await mengambil dari model Mahasiswa
+      // dan menggunakan method find untuk mnegambil semua collection mahasiswa di db Mongo nya
       const mahasiswa = await Mahasiswa.find();
       // Membuat variabel untuk alernya
       const alertMessage = req.flash("alertMessage");
       const alertStatus = req.flash("alertStatus");
       // membuat variabel isinya object yang memiliki sebuah pesan isinya ngambil dari variabel alertMessage dan alertStatus
       const alert = { message: alertMessage, status: alertStatus };
-      /* Lalu render viewnya yang ada di dalam folder /view_category
-      menampilkan datanya dan mendestractur lalu panggil variabel category
+      /* Lalu render viewnya yang ada di dalam file index
+      menampilkan datanya dan mendestractur lalu panggil variabel mahasiswa
        Lalu merender alert yang sudah di deklar di atas */
-      res.render("/index", {
+      res.render("index", {
         mahasiswa,
         alert,
         title: "CRUD",
@@ -26,9 +26,9 @@ module.exports = {
     }
   },
 
-  // Method untuk CRUD category
+  // Method untuk CRUD mahasiswa
 
-  /* Membuat fungsi untuk menambahkan data di Page Category
+  /* Membuat fungsi untuk menambahkan data di form
  dan menggunakan async await */
   addMahasiswa: async (req, res) => {
     // memberi validasi untuk inputan yang kosong
@@ -48,24 +48,24 @@ module.exports = {
     }
   },
 
-  // Membuat fungsi untuk Edit Category
+  // Membuat fungsi untuk Edit Mahasiswa
   editMahasiswa: async (req, res) => {
     try {
       // Membuat variabel yang menerima id, dan name yang didapat dari req body atau yang di input user
       const { id, nama, nim, jurusan, alamat } = req.body;
       /* searcing atau mencari variabel dan mengecek _id yang ada di req body yang dikirim
    _id didapat database dan id isinya dari inputan user */
-      const category = await Category.findOne({ _id: id });
-      /* category diambil dari fungsi diatas dan dot name diambil dari database = name yang didapat dari req body
+      const mahasiswa = await Mahasiswa.findOne({ _id: id });
+      /* mahasiswa diambil dari fungsi diatas dan dot name diambil dari database = name yang didapat dari req body
    yang tentu dikirimkan dari inputan user */
-      category.nama = nama;
-      category.nim = nim;
-      category.jurusan = jurusan;
-      category.alamat = alamat;
+      mahasiswa.nama = nama;
+      mahasiswa.nim = nim;
+      mahasiswa.jurusan = jurusan;
+      mahasiswa.alamat = alamat;
       // Menyimpan datanya ke database
-      await category.save();
+      await mahasiswa.save();
       // ketika edit data memberikan notifikasi
-      req.flash("alertMessage", "Success edit data category");
+      req.flash("alertMessage", "Success edit data mahasiswa");
       req.flash("alertStatus", "success");
       // Setelah berhasil maka meredirect ke tujuan yang ditentukan
       res.redirect("/mahasiswa");
@@ -78,7 +78,7 @@ module.exports = {
     }
   },
 
-  // Membuat fungsi untuk Hapus Category
+  // Membuat fungsi untuk Hapus Mahasiswa
   deleteMahasiswa: async (req, res) => {
     try {
       /*
@@ -87,11 +87,11 @@ module.exports = {
   */
       const { id } = req.params;
       // cek data yang mau di delete
-      const category = await Category.findOne({ _id: id });
+      const mahasiswa = await Mahasiswa.findOne({ _id: id });
       // setelah datanya sudah didapat maka me removenya
-      await category.remove();
+      await mahasiswa.remove();
       // ketika delete data memberikan notifikasi
-      req.flash("alertMessage", "Success delete data category");
+      req.flash("alertMessage", "Success delete data mahasiswa");
       req.flash("alertStatus", "warning");
       // setelah berhasil remove maka melakukan redirect
       res.redirect("/mahasiswa");

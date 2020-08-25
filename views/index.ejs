@@ -10,23 +10,48 @@
     />
   </head>
   <body>
-    <div class="container mt-5 mb-3">
-      <h2 class="text-center col-auto">
+    <div class="container mt-5">
+      <h2 class="text-center">
         CRUD DATA MAHASISWA DENGAN EXPRESS-JS
       </h2>
-
-      <div class="row mt-5">
-        <!-- Form -->
-        <div class="col-12 col-sm-12 col-lg-5">
-          <%- include('./layout/form.ejs') %>
+      <div class="row mt-3">
+        <div class="col-auto col-lg-12 mt-2">
+          <%- include('message.ejs') %>
         </div>
-
         <!-- Table -->
-        <div class="col-12 col-lg-7 mt-2">
-          <%- include('./layout/table.ejs') %>
+        <div class="col-auto col-lg-12 mt-2">
+          <%- include('table.ejs') %>
         </div>
       </div>
     </div>
-    <%- include('./js.ejs') %>
+    <!-- Add Modal -->
+    <%- include('add_modal.ejs') %>
+    <!-- Edit Modal -->
+    <%- include('edit_modal.ejs') %>
+    <!-- JS -->
+    <%- include('js.ejs') %>
+
+    <script>
+      // Menampilkan modal dan memanggil class button-update
+      $("#dataTable").on("click", ".button-update", function () {
+        // membuat variabel untuk mengambil data name dan id yang sudah dibuat di file edit_moduke.ejs
+        let id = $(this).data("id");
+        let nama = $(this).data("nama");
+        let nim = $(this).data("nim");
+        let jurusan = $(this).data("jurusan");
+        let alamat = $(this).data("alamat");
+        /*
+         * memanggil id edit-modal yang ada di file edit_modal.ejs
+         * dan membuat method modal
+         */
+        $("#edit-modal").modal("show");
+        // Mengirim id dan name melalui class(.)  dan valuenya mengambil dari id yang ada di let atas
+        $(".id").val(id);
+        $(".nama").val(nama);
+        $(".nim").val(nim);
+        $(".jurusan").val(jurusan);
+        $(".alamat").val(alamat);
+      });
+    </script>
   </body>
 </html>
