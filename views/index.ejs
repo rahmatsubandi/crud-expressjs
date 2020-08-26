@@ -12,11 +12,15 @@
   <body>
     <div class="container mt-5">
       <h2 class="text-center">
-        CRUD DATA MAHASISWA DENGAN EXPRESS-JS
+        CRUD DATA MAHASISWA EXPRESS-JS
       </h2>
       <div class="row mt-3">
         <div class="col-auto col-lg-12 mt-2">
-          <%- include('message.ejs') %>
+          <% if(alert.message != "") { %>
+          <div class="alert alert-<%= alert.status %>" role="alert">
+            <%= alert.message %>
+          </div>
+          <% } %>
         </div>
         <!-- Table -->
         <div class="col-auto col-lg-12 mt-2">
