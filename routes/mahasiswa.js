@@ -15,15 +15,11 @@ router.delete("/:id", mahasiswaController.deleteMahasiswa); // membuat endpoint 
  * POST -> menambahkan data
  * PUT/:id -> mengubah data
  * DELETE/:id -> menghapus data
+ *
+ * POST -> menambahkan data berdasarkan id yang ditangkap
+ * PUT/:id -> mengubah data berdasarkan id yang ditangkap
+ * DELETE/:id -> menghapus data berdasarkan id yang ditangkap
  * GET/:id -> menampilkan data berdasarkan id tertentu.
- */
-
-/**
- * GET /api/mahasiswa Menampilkan seluruh data
- * POST /api/mahasiswa Menambah data
- * GET /api/mahasiswa/{id} Menampikan data berdasarkan ID
- * PUT /api/mahasiswa/{id} Perbarui data
- * DELETE /api/mahasiswa/{id} Hapus data
  */
 
 // Lalu export routernya

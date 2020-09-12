@@ -1,6 +1,11 @@
 // Membuat variabel Mahasiswa dan mengimport/required ke model Mahasiswa
 const Mahasiswa = require("../models/Mahasiswa");
 
+/** NOTE
+ * Pernyataan try memungkinkan Anda untuk menentukan blok kode yang akan diuji untuk kesalahan ketika sedang dieksekusi .
+ * Pernyataan catch memungkinkan Anda untuk menentukan blok kode yang akan dieksekusi , jika kesalahan terjadi pada blok try .
+ */
+
 // Jika menggunakan metod export seperti dibawah ini, maka semua metod yang ada di dalam object akan ter export
 module.exports = {
   viewMahasiswa: async (req, res) => {
