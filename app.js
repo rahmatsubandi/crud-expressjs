@@ -13,7 +13,7 @@ const flash = require("connect-flash");
 const mongoose = require("mongoose");
 // membuat koneksi ke database
 mongoose.connect(
-  "mongodb+srv://rahmatsubandi:CfUySh63W7xqq7U@cluster0.dixya.mongodb.net/crud-mahasiswa?retryWrites=true&w=majoritymongodb+srv://rahmatsubandi:<password>@cluster0.dixya.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  "mongodb+srv://rahmatsubandi:CfUySh63W7xqq7U@cluster0.dixya.mongodb.net/crud-mahasiswa?retryWrites=true&w=majority",
   {
     useNewUrlParser: true,
     useUnifiedTopology: true,
