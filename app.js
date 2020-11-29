@@ -12,12 +12,15 @@ const flash = require("connect-flash");
 // import mongoose
 const mongoose = require("mongoose");
 // membuat koneksi ke database
-mongoose.connect("mongodb://localhost:27017/db_mahasiswa", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useCreateIndex: true,
-  useFindAndModify: false,
-});
+mongoose.connect(
+  "mongodb+srv://rahmatsubandi:CfUySh63W7xqq7U@cluster0.dixya.mongodb.net/<dbname>?retryWrites=true&w=majoritymongodb+srv://rahmatsubandi:<password>@cluster0.dixya.mongodb.net/<dbname>?retryWrites=true&w=majority",
+  {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false,
+  }
+);
 
 var indexRouter = require("./routes/index");
 var usersRouter = require("./routes/users");
